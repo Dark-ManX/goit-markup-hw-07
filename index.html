@@ -22,31 +22,31 @@
 
     <header class="header">
         <div class="container header-content">
-            <a class="logo" href="./index.html"><span class="web">Web</span>Studio</a>
-            <nav class="head-nav">
-                <ul class="head-nav__list">
-                    <li class="head-nav__item">
-                        <a href="index.html" class="head-nav__link head-nav__link--current">Студия</a>
+            <a class="logo header__logo" href="./index.html"><span class="web">Web</span>Studio</a>
+            <nav class="header-nav">
+                <ul class="header-list">
+                    <li class="header-list-item">
+                        <a href="index.html" class="link current">Студия</a>
                     </li>
-                    <li class="head-nav__item">
-                        <a href="portfolio.html" class="head-nav__link">Портфолио</a>
+                    <li class="header-list-item">
+                        <a href="portfolio.html" class="link">Портфолио</a>
                     </li>
-                    <li class="head-nav__item">
-                        <a href="" class="head-nav__link">Контакты</a>
+                    <li class="header-list-item">
+                        <a href="" class="link">Контакты</a>
                     </li>
                 </ul>
             </nav>
-            <ul class="contacts">
-                <li class="contacts__item">
-                    <a class="contacts__link" href="mailto:info@devstudio.com">
-                        <svg class="contacts__icon"  width="16" height="12">
+            <ul class="header-link">
+                <li class="contact-link">
+                    <a class="contacts" href="mailto:info@devstudio.com">
+                        <svg class="contacts-icon"  width="16" height="12">
                             <use href="./images/sprite.svg#icon-letter"/>
                         </svg>
                         info@devstudio.com</a>
                 </li>
-                <li class="contacts__item">
-                    <a class="contacts__link" href="tel:+380961111111">
-                        <svg class="contacts__icon" width="10" height="16">
+                <li class="contact-link">
+                    <a class="contacts" href="tel:+380961111111">
+                        <svg class="contacts-icon" width="10" height="16">
                             <use href="./images/sprite.svg#icon-smartphone"/>
                         </svg>
                         +38 096 111 11 11</a>
@@ -60,22 +60,22 @@
 
         <section class="business hero">
             <div class="container">
-                <h1 class="business__title">
+                <h1 class="hero-title">
                     ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br />
                     ДЛЯ ВАШЕГО БИЗНЕСА
                 </h1>
-                <button class="business__button" type="button" data-modal-open>Заказать услугу</button>
+                <button class="button" type="button" data-modal-open>Заказать услугу</button>
                 
                 <!-- Modal window -->
                 <div class="modal-container is-hidden" data-modal>
-                    <div class="modal">
-                        <button class="modal__close" aria-label="close" data-modal-close>
+                    <div class="modal-window">
+                        <button class="modal-close" aria-label="close" data-modal-close>
                             <svg width="11" height="11">
                                 <use href="./images/sprite.svg#icon-vector"/>
                             </svg>
                         </button>
                         <form>
-                            <b class="modal__request">Оставьте свои данные, мы вам перезвоним</b>
+                            <b class="modal-request">Оставьте свои данные, мы вам перезвоним</b>
                             <div class="input-field">                                
                                 <label class="modal-label" for="name">Имя</label>
                                 <input class="modal-input" type="text" name="name" id="name" required>                                                                                    
