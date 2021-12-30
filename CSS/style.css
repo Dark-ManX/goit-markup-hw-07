@@ -54,7 +54,7 @@ a {
   padding: 24px 0 25px;
   border-bottom: 1px solid #ececec;
 }
-.header-content,
+.header__content,
 .head-nav__list,
 .contacts {
   display: flex;
@@ -73,26 +73,29 @@ a {
 .web {
   color: var(--interactive-color);
 }
-.header-nav {
+.header__navigation {
   margin-left: 93px;
 }
-.header-list {
+.header-nav__list {
   display: flex;
 }
-.header-list-item:not(:last-child) {
+.header-nav__item:first-child {
+  margin-left: 93px;
+}
+.header-nav__item:not(:last-child) {
   margin-right: 50px;
 }
 
-.header-link {
+.header__contacts {
   display: flex;
   margin-left: auto;
   align-items: center;
 }
-.contact-link:not(:last-child) {
+.header-contacts__item:not(:last-child) {
   margin-right: 50px;
 }
-.link,
-.contacts {
+.header-nav__link,
+.contacts__link {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -102,17 +105,17 @@ a {
 .contacts {
   color: var(--secondary-color);
 }
-.link {
+.header-nav__link {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.link:hover,
-.link:focus {
+.header-nav__link:hover,
+.header-nav__link:focus {
   color: var(--interactive-color);
 }
-.current {
+.header-nav__link--current {
   color: var(--interactive-color);
 }
-.current::after {
+.header-nav__link--current::after {
   content: "";
   display: block;
   height: 4px;
@@ -120,7 +123,7 @@ a {
   border-radius: 2px;
   background-color: var(--interactive-color);
   position: relative;
-  bottom: -30px;
+  bottom: -26px;
   animation-name: animate-after;
   animation-duration: 500ms;
 }
@@ -139,22 +142,22 @@ a {
     transform: scaleX(1);
   }
 }
-.contacts {
+.contacts__link {
   display: flex;
   align-items: center;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.contacts:hover,
-.contacts:focus {
+.contacts__link:hover,
+.contacts__link:focus {
   color: var(--interactive-color);
 }
-.contacts-icon {
-  margin-right: 10px;
+.contacts__svg {
   fill: var(--secondary-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 10px;
 }
-.contacts:hover svg,
-.contacts:focus svg {
+.contacts-link:hover svg,
+.contacts-link:focus svg {
   fill: var(--interactive-color);
 }
 
@@ -212,12 +215,12 @@ a {
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.is-hidden {
+.modal-container--is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
-.is-hidden .modal-window {
+.modal-container--is-hidden .modal-window {
   position: relative;
   transform: translate(-50%, -50%) scale(0.3, 0.3);
 }
@@ -246,12 +249,12 @@ a {
   cursor: pointer;
   background-color: transparent;
 }
-.modal-close > svg {
+.modal-close__icon {
   fill: #000;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-close:hover > svg,
-.modal-close:focus > svg {
+.modal-close:hover .modal-close__icon,
+.modal-close:focus .modal-close__icon {
   fill: var(--interactive-color);
 }
 
@@ -264,14 +267,16 @@ a {
   letter-spacing: 0.03em;
 }
 .input-field {
-  margin-bottom: 10px;
   position: relative;
   outline-color: var(--interactive-color);
+}
+.modal-form__box {
+  margin-bottom: 10px;
 }
 .input-field:last-child {
   margin-bottom: 20px;
 }
-.modal-input {
+.input-field__input {
   width: 100%;
   height: 40px;
   border-radius: 4px;
@@ -279,17 +284,23 @@ a {
   text-indent: 42px;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-input:hover {
+.input-field__input:hover {
   cursor: pointer;
 }
-.modal-input:focus {
+.input-field__input:focus {
   outline-color: var(--interactive-color);
   border-color: var(--interactive-color);
 }
-.modal-input:focus ~ svg {
+.input-field__modal-icon {
+  position: absolute;
+  left: 12px;
+  bottom: 11px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-field__input:focus ~ .input-field__modal-icon {
   fill: var(--interactive-color);
 }
-.modal-label {
+.input-field__label {
   font-family: inherit;
   font-style: inherit;
   font-size: 12px;
@@ -298,12 +309,6 @@ a {
   color: var(--secondary-color);
   display: block;
   text-align: start;
-}
-.input-field > svg {
-  position: absolute;
-  left: 12px;
-  bottom: 11px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .comment {
   margin-top: 4px;
@@ -319,7 +324,7 @@ a {
   outline-color: var(--interactive-color);
   border-color: var(--interactive-color);
 }
-.agreement {
+.modal-form__agreement {
   min-height: 24px;
   margin-bottom: 30px;
   text-align: start;
@@ -333,11 +338,11 @@ a {
   color: var(--secondary-color);
 }
 
-.agreement-text > a {
+.agreeement-text__link {
   color: var(--interactive-color);
   text-decoration-line: underline;
 }
-.agreement > svg {
+.input-field__checkbox-icon {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -349,7 +354,7 @@ a {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
-.checkbox {
+.input-field__checkbox {
   opacity: 0;
   position: absolute;
   z-index: 3;
@@ -358,11 +363,11 @@ a {
   border-color: var(--primary-color);
   outline: none;
 }
-.checkbox:checked ~ svg {
+.input-field__checkbox:checked ~ .input-field__checkbox-icon {
   border-color: var(--interactive-color);
   background-color: var(--interactive-color);
 }
-.checkbox:focus ~ svg {
+.input-field__checkbox:focus ~ .input-field__checkbox-icon {
   border-color: var(--interactive-color);
 }
 .submit-button {
@@ -385,7 +390,7 @@ a {
 
 /*=================== Our benefits */
 
-.visually-hidden {
+.benefits--visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -397,31 +402,32 @@ a {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-.benefits-icon {
+.benefits-item__icon {
   padding: 25px 100px;
   background-color: #f5f4fa;
   border-radius: 4px;
   margin-bottom: 30px;
 }
-.list-header {
-  margin-bottom: 10px;
+.benefits-item__header {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
-.benefits-description {
+.benefits-item__description {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--secondary-color);
   text-transform: none;
 }
-.benefits-list {
+.benefits__list {
   width: 270px;
+  display: flex;
 }
-.benefits-list:not(:last-child) {
+.benefits-list__style:not(:last-child) {
   margin-right: 30px;
 }
 
@@ -431,19 +437,20 @@ a {
   padding-top: 0;
 }
 .title {
-  margin-bottom: 50px;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
-  text-align: center;
   letter-spacing: 0.03em;
 }
-
-.image-wrap {
+.work__title {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.image-box {
   position: relative;
   z-index: 1;
 }
-.image-wrap::before {
+.image-box::before {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -452,7 +459,7 @@ a {
   width: 100%;
   height: 70px;
 }
-.work-description {
+.image-box__description {
   position: absolute;
   bottom: 27px;
   left: 50%;
@@ -466,7 +473,7 @@ a {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-.image-wrap > img {
+.image-box__img {
   display: block;
   width: 100%;
 }
@@ -478,22 +485,29 @@ a {
 .photo {
   display: block;
 }
-.name,
-.position {
+.team__list {
+  display: flex;
+}
+.team__item:not(:last-child) {
+  margin-right: 30px;
+}
+.team-description__name,
+.team-description__position {
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
   letter-spacing: 0.03em;
 }
-.name {
+.team-description__name {
   font-weight: 500;
 }
-.position {
-  margin-top: 10px;
+.team-description__position {
   color: var(--secondary-color);
+  margin-top: 10px;
 }
 
 .team-description {
+  margin-top: 10px;
   background-color: #fff;
   padding: 30px 32px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -501,60 +515,64 @@ a {
   border-radius: 0px 0px 4px 4px;
 }
 
-.team-social-list {
-  margin-top: 16px;
+.team-list__social-list {
   display: flex;
+  margin-top: 16px;
 }
-.team-social-list > li:not(:last-child) {
+.team-list__social-list:not(:last-child) {
   margin-right: 10px;
 }
 .social-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.social-link:focus,
-.social-link:hover {
+.team-social-item__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.team-social-item__link:focus,
+.team-social-item__link:hover {
   background-color: var(--interactive-color);
 }
-.social-link:focus > svg,
-.social-link:hover > svg {
+.social-link:focus .social-link__icon,
+.social-link:hover .social-link__icon {
   fill: white;
 }
-.social-icon {
+.social-link__icon {
   fill: var(--social-icon-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==================== Our clients */
 
-.clients-list {
+.clients__list {
   display: flex;
 }
-.clients-list-item:not(:last-child) {
+.clients-list__item:not(:last-child) {
   margin-right: 30px;
 }
 .clients-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 170px;
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.clients__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .clients-link:hover,
 .clients-link:focus {
   border-color: var(--interactive-color);
 }
-.clients-link:hover svg,
-.clients-link:focus svg {
+.clients-link:hover .client-icon,
+.clients-link:focus .client-icon {
   fill: var(--interactive-color);
 }
 .client-icon {
@@ -576,12 +594,16 @@ a {
 }
 .address-container {
   min-width: 231px;
+}
+.style__address-container {
   margin-right: 70px;
 }
 .foot {
-  display: inline-block;
   color: white;
+}
+.style__foot {
   margin-bottom: 20px;
+  display: inline-block;
 }
 address,
 .footer-contacts {
@@ -594,10 +616,10 @@ address,
 address {
   color: var(--header-color);
 }
-.location {
+.address__location {
   margin-bottom: 9px;
 }
-.footer-link:not(:last-child) {
+.address__link:not(:last-child) {
   margin-bottom: 9px;
 }
 .footer-contacts {
@@ -609,28 +631,32 @@ address {
   outline: 1px solid var(--header-color);
 }
 
-.join-container > h3 {
+.footer-title {
   color: var(--header-color);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.17;
   text-transform: uppercase;
+}
+.join-container__title {
   margin-bottom: 20px;
 }
-.footer-join {
+.join-container__join-social {
   display: flex;
 }
 .join-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.join-link:not(:last-child) {
+.footer-join__join-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-join__join-link:not(:last-child) {
   margin-right: 10px;
 }
 .join-link:hover,
@@ -640,7 +666,7 @@ address {
 .join-link:focus {
   outline: 1px solid var(--header-color);
 }
-.join-link svg {
+.join-link .footer-join__icon {
   fill: var(--header-color);
 }
 .container-request {
@@ -654,6 +680,8 @@ address {
   line-height: 1.14;
   text-transform: uppercase;
   color: var(--header-color);
+}
+.footer__form {
   margin-bottom: 20px;
 }
 .footer-fieldset {
@@ -663,10 +691,12 @@ address {
 .footer-input {
   width: 358px;
   height: 50px;
-  margin-right: 12px;
   background-color: var(--background-color);
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.footer-fieldset__input {
+  margin-right: 12px;
 }
 .footer-input:focus {
   outline: 1px solid var(--header-color);
@@ -674,24 +704,23 @@ address {
 .footer-submit {
   min-width: 200px;
   height: 50px;
-  margin: 0 auto;
   border-radius: 4px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   letter-spacing: 0.06em;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   background-color: var(--interactive-color);
   color: var(--header-color);
   cursor: pointer;
 }
-.footer-submit > svg {
+.footer-fieldset__button {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-submit__icon {
   margin-left: 10px;
   fill: #fff;
 }
