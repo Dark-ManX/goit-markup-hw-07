@@ -1,10 +1,28 @@
+@mixin font-style($fw, $fs, $lh, $ls) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin border-style($b, $bs, $bc, $br) {
+  border: $b;
+  border-style: $bs;
+  border-color: $bc;
+  border-radius: $br;
+}
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
 .modal-container {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  @include size(100vw, 100vh);
   z-index: 100;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -21,8 +39,7 @@
   }
 }
 .modal-window {
-  width: 528px;
-  height: 581px;
+  @include size(528px, 581px);
   padding: 40px;
   background-color: #fff;
   position: absolute;
@@ -35,15 +52,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  @include size(30px, 30px);
   position: absolute;
   top: 8px;
   right: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
   cursor: pointer;
   background-color: transparent;
+  @include border-style(1px, solid, rgba(0, 0, 0, 0.1), 50%);
 
   &__icon {
     fill: #000;
@@ -52,47 +67,24 @@
   &:hover,
   &:focus {
     .modal-close__icon {
-      fill: var(--interactive-color);
+      fill: $interactive-color;
     }
   }
 }
 .modal-request {
   display: inline-block;
   margin-bottom: 12px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
-  letter-spacing: 0.03em;
+  @include font-style(700, 20px, 1.15, 0.03em);
 }
 .modal-form__box {
   margin-bottom: 10px;
 }
 .input-field {
   position: relative;
-  outline-color: var(--interactive-color);
+  outline-color: $interactive-color;
+
   &:last-child {
     margin-bottom: 20px;
-  }
-}
-.input-field__input {
-  width: 100%;
-  height: 40px;
-  border-radius: 4px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  text-indent: 42px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline-color: var(--interactive-color);
-    border-color: var(--interactive-color);
-
-    .input-field__modal-icon {
-      fill: var(--interactive-color);
-    }
   }
 
   &__modal-icon {
@@ -102,25 +94,48 @@
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  &__input {
+    @include size(100%, 40px);
+    text-indent: 42px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    @include border-style(1px, solid, rgba(33, 33, 33, 0.2), 4px);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline-color: $interactive-color;
+      border-color: $interactive-color;
+    }
+    &:focus ~ .input-field__modal-icon {
+      fill: $interactive-color;
+    }
+  }
+
   &__label {
-    font-family: inherit;
-    font-style: inherit;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.01em;
-    color: var(--secondary-color);
+    font-family: "Roboto";
+    color: $secondary-color;
     display: block;
     text-align: start;
+    @include font-style(400, 12px, 1.17, 0.01em);
   }
 
   &__checkbox {
     opacity: 0;
     position: absolute;
     z-index: 3;
-    width: 100%;
-    height: 100%;
-    border-color: var(--primary-color);
+    @include size(100%, 100%);
+    border-color: $primary-color;
     outline: none;
+
+    &:checked ~ &-icon {
+      border-color: $interactive-color;
+      background-color: $interactive-color;
+    }
+    &:focus ~ &-icon {
+      border-color: $interactive-color;
+    }
 
     &-icon {
       position: absolute;
@@ -129,33 +144,24 @@
       transform: translateY(-60%);
       background-color: #fff;
       fill: #fff;
-      border: 2px solid #212121;
-      border-radius: 2px;
       transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 2;
+      @include border-style(2px, solid, $primary-color, 2px);
     }
   }
-  &:checked ~ &-icon {
-    border-color: var(--interactive-color);
-    background-color: var(--interactive-color);
-  }
-  &:focus ~ &-icon {
-    border-color: var(--interactive-color);
-  }
 }
+
 .comment {
   margin-top: 4px;
   width: 100%;
   text-indent: 0;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
   resize: none;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include border-style(1px, solid, rgba(33, 33, 33, 0.2), 4px);
 
   &:focus {
-    font-family: inherit;
-    outline-color: var(--interactive-color);
-    border-color: var(--interactive-color);
+    outline-color: $interactive-color;
+    border-color: $interactive-color;
   }
 }
 
@@ -168,21 +174,20 @@
 .agreement-text {
   display: block;
   margin-left: 36px;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-  color: var(--secondary-color);
+  color: $secondary-color;
+  @include font-style(400, 14px, 1.71, 0.03em);
 
   &__link {
-    color: var(--interactive-color);
-    text-decoration-line: underline;
+    color: $interactive-color;
+    text-decoration: underline;
   }
 }
+
+@import "./_button.scss";
+
 .submit-button {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   outline-color: currentColor;
 }
-
-@import "./_button.scss";

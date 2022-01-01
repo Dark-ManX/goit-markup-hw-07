@@ -1,5 +1,5 @@
 body {
-  font-family: var(--primary-text), sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   color: #212121;
@@ -255,8 +255,8 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 100;
   -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -307,10 +307,12 @@ a {
   position: absolute;
   top: 8px;
   right: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
   cursor: pointer;
   background-color: transparent;
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 .modal-close__icon {
   fill: #000;
@@ -319,7 +321,7 @@ a {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close:hover .modal-close__icon, .modal-close:focus .modal-close__icon {
-  fill: var(--interactive-color);
+  fill: #2196f3;
 }
 
 .modal-request {
@@ -337,33 +339,12 @@ a {
 
 .input-field {
   position: relative;
-  outline-color: var(--interactive-color);
+  outline-color: #2196f3;
 }
 .input-field:last-child {
   margin-bottom: 20px;
 }
-
-.input-field__input {
-  width: 100%;
-  height: 40px;
-  border-radius: 4px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  text-indent: 42px;
-  -webkit-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.input-field__input:hover {
-  cursor: pointer;
-}
-.input-field__input:focus {
-  outline-color: var(--interactive-color);
-  border-color: var(--interactive-color);
-}
-.input-field__input:focus .input-field__modal-icon {
-  fill: var(--interactive-color);
-}
-.input-field__input__modal-icon {
+.input-field__modal-icon {
   position: absolute;
   left: 12px;
   bottom: 11px;
@@ -371,26 +352,55 @@ a {
   -o-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.input-field__input__label {
-  font-family: inherit;
-  font-style: inherit;
+.input-field__input {
+  width: 100%;
+  height: 40px;
+  text-indent: 42px;
+  -webkit-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+.input-field__input:hover {
+  cursor: pointer;
+}
+.input-field__input:focus {
+  outline-color: #2196f3;
+  border-color: #2196f3;
+}
+.input-field__input:focus ~ .input-field__modal-icon {
+  fill: #2196f3;
+}
+.input-field__label {
+  font-family: "Roboto";
+  color: #757575;
+  display: block;
+  text-align: start;
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
-  color: var(--secondary-color);
-  display: block;
-  text-align: start;
 }
-.input-field__input__checkbox {
+.input-field__checkbox {
   opacity: 0;
   position: absolute;
   z-index: 3;
   width: 100%;
   height: 100%;
-  border-color: var(--primary-color);
+  border-color: #212121;
   outline: none;
 }
-.input-field__input__checkbox-icon {
+.input-field__checkbox:checked ~ .input-field__checkbox-icon {
+  border-color: #2196f3;
+  background-color: #2196f3;
+}
+.input-field__checkbox:focus ~ .input-field__checkbox-icon {
+  border-color: #2196f3;
+}
+.input-field__checkbox-icon {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -399,36 +409,32 @@ a {
           transform: translateY(-60%);
   background-color: #fff;
   fill: #fff;
-  border: 2px solid #212121;
-  border-radius: 2px;
   -webkit-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
-}
-.input-field__input:checked ~ .input-field__input-icon {
-  border-color: var(--interactive-color);
-  background-color: var(--interactive-color);
-}
-.input-field__input:focus ~ .input-field__input-icon {
-  border-color: var(--interactive-color);
+  border: 2px;
+  border-style: solid;
+  border-color: #212121;
+  border-radius: 2px;
 }
 
 .comment {
   margin-top: 4px;
   width: 100%;
   text-indent: 0;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
   resize: none;
   -webkit-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px;
+  border-style: solid;
+  border-color: rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
 }
 .comment:focus {
-  font-family: inherit;
-  outline-color: var(--interactive-color);
-  border-color: var(--interactive-color);
+  outline-color: #2196f3;
+  border-color: #2196f3;
 }
 
 .modal-form__agreement {
@@ -440,23 +446,15 @@ a {
 .agreement-text {
   display: block;
   margin-left: 36px;
+  color: #757575;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  color: var(--secondary-color);
 }
 .agreement-text__link {
-  color: var(--interactive-color);
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-}
-
-.submit-button {
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  outline-color: currentColor;
+  color: #2196f3;
+  text-decoration: underline;
 }
 
 .button {
@@ -474,4 +472,12 @@ a {
   text-align: center;
   letter-spacing: 0.06em;
   cursor: pointer;
+}
+
+.submit-button {
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  outline-color: currentColor;
 }/*# sourceMappingURL=main.css.map */
