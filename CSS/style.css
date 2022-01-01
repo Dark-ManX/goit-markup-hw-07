@@ -411,7 +411,7 @@ a {
   width: 270px;
   display: flex;
 }
-.benefits-list__style:not(:last-child) {
+.benefits-item:not(:last-child) {
   margin-right: 30px;
 }
 
@@ -519,13 +519,13 @@ a {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.team-social-item__link {
+.social-item__link {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.team-social-item__link:focus,
-.team-social-item__link:hover {
+.social-item__link:focus,
+.social-item__link:hover {
   background-color: var(--interactive-color);
 }
 .social-link:focus .social-link__icon,
