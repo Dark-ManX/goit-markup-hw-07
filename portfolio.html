@@ -16,32 +16,32 @@
 
     <!-- Header -->
     <header class="header">
-        <div class="container header-content">
+        <div class="container header__content">
             <a class="logo header__logo" href="./index.html"><span class="web">Web</span>Studio</a>
-            <nav class="header-nav">
-                <ul class="header-list">
-                    <li class="header-list-item">
-                        <a href="index.html" class="link">Студия</a>
+            <nav class="header-nav header__navigation">
+                <ul class="header-nav__list">
+                    <li class="header-nav__item">
+                        <a href="index.html" class="header-nav__link">Студия</a>
                     </li>
-                    <li class="header-list-item">
-                        <a href="portfolio.html" class="link current">Портфолио</a>
+                    <li class="header-nav__item">
+                        <a href="portfolio.html" class="header-nav__link header-nav__link--current">Портфолио</a>
                     </li>
-                    <li class="header-list-item">
-                        <a href="" class="link">Контакты</a>
+                    <li class="header-nav__item">
+                        <a href="" class="header-nav__link">Контакты</a>
                     </li>
                 </ul>
             </nav>
-            <ul class="header-link">
-                <li class="contact-link">
-                    <a class="contacts" href="mailto:info@devstudio.com">
-                        <svg class="contacts-icon" width="16" height="12">
+            <ul class="header-contacts header__contacts">
+                <li class="contact-list header-contacts__item">
+                    <a class="contacts__link" href="mailto:info@devstudio.com">
+                        <svg class="contacts__svg" width="16" height="12">
                             <use href="./images/sprite.svg#icon-letter" />
                         </svg>
                         info@devstudio.com</a>
                 </li>
-                <li class="contact-link">
-                    <a class="contacts" href="tel:+380961111111">
-                        <svg class="contacts-icon" width="10" height="16">
+                <li class="contact-list item">
+                    <a class="contacts__link" href="tel:+380961111111">
+                        <svg class="contacts__svg" width="10" height="16">
                             <use href="./images/sprite.svg#icon-smartphone" />
                         </svg>
                         +38 096 111 11 11</a>
@@ -246,16 +246,16 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container style">
-            <div class="address-container">
-                <a class="foot logo"><span class="web">Web</span>Studio</a>
+            <div class="address-container style__address-container">
+                <a class="foot logo style__foot"><span class="web">Web</span>Studio</a>
     
                 <address class="address">
-                    <p class="location">г. Киев, пр-т Леси Украинки, 26</p>
+                    <p class="address__location">г. Киев, пр-т Леси Украинки, 26</p>
                     <ul class="footer-list">
-                        <li class="footer-link">
+                        <li class="address__link">
                             <a class="footer-contacts" href="mailto:info@example.com">info@example.com</a>
                         </li>
-                        <li class="footer-link">
+                        <li class="address__link">
                             <a class="footer-contacts" href="tel:+380961111111">+38 099 111 11 11</a>
                         </li>
                     </ul>
@@ -263,30 +263,42 @@
             </div>
     
             <div class="join-container">
-                <h3>Присоединяйтесь</h3>
-                <div class="footer-join">
-                    <a href="#" class="join-link" aria-label="instagram">
-                        <svg width="20" height="20">
+                <h3 class="footer-title join-container__title">Присоединяйтесь</h3>
+                <div class="footer-join join-container__join-social">
+                    <a href="#" class="join-link footer-join__join-link" aria-label="instagram">
+                        <svg class="footer-join__icon" width="20" height="20">
                             <use href="./images/sprite.svg#icon-instagram" />
                         </svg>
                     </a>
-                    <a href="#" class="join-link" aria-label="twitter">
-                        <svg width="20" height="20">
+                    <a href="#" class="join-link footer-join__join-link" aria-label="twitter">
+                        <svg class="footer-join__icon" width="20" height="20">
                             <use href="./images/sprite.svg#icon-twitter" />
                         </svg>
                     </a>
-                    <a href="#" class="join-link" aria-label="facebook">
-                        <svg width="20" height="20">
+                    <a href="#" class="join-link footer-join__join-link" aria-label="facebook">
+                        <svg class="footer-join__icon" width="20" height="20">
                             <use href="./images/sprite.svg#icon-facebook" />
                         </svg>
                     </a>
-                    <a href="#" class="join-link" aria-label="linkedin">
-                        <svg width="20" height="20">
+                    <a href="#" class="join-link footer-join__join-link" aria-label="linkedin">
+                        <svg class="footer-join__icon" width="20" height="20">
                             <use href="./images/sprite.svg#icon-linkedin" />
                         </svg>
                     </a>
                 </div>
             </div>
+    
+            <form class="container-request footer__form">
+                <b class="footer-request">Подпишитесь на рассылку</b>
+                <div class="footer-fieldset" role="group">
+                    <input class="footer-input footer-fieldset__input" type="email" name="email" placeholder="E-mail">
+                    <button class="footer-submit footer-fieldset__button" type="submit">Подписаться
+                        <svg class="footer-submit__icon" width="24" height="24">
+                            <use href="./images/sprite.svg#icon-send" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
         </div>
     </footer>
     </body>

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
         integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="CSS/style.css" />    
+    <link rel="stylesheet" href="CSS/main.min.css" />    
 </head>
 
 <body>
@@ -38,15 +38,15 @@
             </nav>
             <ul class="header-contacts header__contacts">
                 <li class="contact-list header-contacts__item">
-                    <a class="contacts__link" href="mailto:info@devstudio.com">
-                        <svg class="contacts__svg"  width="16" height="12">
+                    <a class="contacts-list__link" href="mailto:info@devstudio.com">
+                        <svg class="contacts-list__svg"  width="16" height="12">
                             <use href="./images/sprite.svg#icon-letter"/>
                         </svg>
                         info@devstudio.com</a>
                 </li>
-                <li class="contact-list item">
-                    <a class="contacts__link" href="tel:+380961111111">
-                        <svg class="contacts__svg" width="10" height="16">
+                <li class="contact-list header-contacts__item">
+                    <a class="contacts-list__link" href="tel:+380961111111">
+                        <svg class="contacts-list__svg" width="10" height="16">
                             <use href="./images/sprite.svg#icon-smartphone"/>
                         </svg>
                         +38 096 111 11 11</a>
@@ -64,7 +64,7 @@
                     ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br />
                     ДЛЯ ВАШЕГО БИЗНЕСА
                 </h1>
-                <button class="button" type="button" data-modal-open>Заказать услугу</button>
+                <button class="button hero__button" type="button" data-modal-open>Заказать услугу</button>
                 
                 <!-- Modal window -->
                 <div class="modal-container modal-container--is-hidden" data-modal>
@@ -115,7 +115,7 @@
                                 <label class="agreement-text" for="agreement">Соглашаюсь с рассылкой и принимаю <a href="#" class="agreeement-text__link">Условия договора</a></label>
                             </div>
 
-                            <button class="submit-button" type="submit">Отправить</button>
+                            <button class="button submit-button" type="submit">Отправить</button>
                             
                         </form>
                     </div>
@@ -191,22 +191,22 @@
             <div class="container">
                 <h2 class="title work__title">Чем мы занимаемся</h2>
                 
-                <ul class="list">
-                    <li class="list__item">
+                <ul class="work-list work__list">
+                    <li class="work-list__item">
                         <div class="image-box">
                             <p class="image-box__description">Десктопные приложения</p>                            
                             <img  class="image-box__img" src="images/work-img/img(1).jpg" alt="photo 1" />
                         </div>
                     </li>
                    
-                    <li class="list__item">
+                    <li class="work-list__item">
                         <div class="image-box">
                             <p class="image-box__description">Мобильные приложения</p>
                             <img class="image-box__img" src="images/work-img/img(2).jpg" alt="photo 2"/>
                         </div>
                     </li>
                     
-                    <li class="list__item">
+                    <li class="work-list__item">
                         <div class="image-box">
                             <p class="image-box__description">Дизайнерские решения</p>
                             <img class="image-box__img" src="images/work-img/img(3).jpg" alt="photo 3"/>
