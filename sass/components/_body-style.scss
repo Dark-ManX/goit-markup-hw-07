@@ -25,7 +25,6 @@
   letter-spacing: $ls;
   text-transform: $tt;
   color: $color;
-  margin-bottom: 50px;
 }
 
 .hero-title {
@@ -40,7 +39,7 @@
 
 // --------------Benefits------------
 
-.title--visually-hidden {
+.benefits--visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -134,12 +133,6 @@
 
 // ------------Team section-------------
 
-@mixin team-card-text {
-  font-size: 16px;
-  line-height: 1.19;
-  letter-spacing: 0.03em;
-  text-align: center;
-}
 .team {
   background-color: $not-active-color;
 
@@ -147,72 +140,8 @@
     display: flex;
   }
 
-  &-list__box {
-    padding: 30px 32px;
-  }
-
-  &__item:not(:last-child) {
-    margin-right: 30px;
-  }
-  &-description {
-    background-color: #fff;
-    padding: 30px 32px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-      0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 0px 0px 4px 4px;
-
-    &__name {
-      font-weight: 500;
-      @include team-card-text;
-    }
-
-    &__position {
-      @include team-card-text;
-      color: $secondary-color;
-      margin-top: 10px;
-    }
-  }
-}
-
-.team-list__social-list {
-  margin-top: 16px;
-}
-
-@import "./_social-list.scss";
-
-// ---------------Clients---------------
-
-.clients-list {
-  display: flex;
-
-  &__item:not(:last-child) {
-    margin-right: 30px;
-  }
-}
-.clients-list__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 170px;
-  height: 92px;
-
-  &:hover,
-  &:focus {
-    border-color: $interactive-color;
-
-    .clients-link__icon {
-      fill: $interactive-color;
-    }
-  }
-}
-
-.clients-link {
-  border: 1px solid #afb1b8;
-  border-radius: 4px;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &__icon {
-    fill: $social-icon-color;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &-list__social-list {
+    display: flex;
+    margin-top: 10px;
   }
 }
